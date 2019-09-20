@@ -272,8 +272,8 @@ ProTypeMemberInitCheck::ProTypeMemberInitCheck(StringRef Name,
       IgnoreArrays(Options.get("IgnoreArrays", true)),
       IgnoreDefaultConstructible(
           Options.get("IgnoreDefaultConstructible", true)),
-      IgnoreVars(Options.get("IgnoreVars", true)) {},
-	  UseAssignment(Options.getLocalOrGlobal("UseAssignment", false)) {}
+      IgnoreVars(Options.get("IgnoreVars", true)),
+      UseAssignment(Options.getLocalOrGlobal("UseAssignment", false)) {}
 
 void ProTypeMemberInitCheck::registerMatchers(MatchFinder *Finder) {
   if (!getLangOpts().CPlusPlus)
