@@ -123,6 +123,11 @@ extern volatile int ZirconModuleAnchorSource;
 static int LLVM_ATTRIBUTE_UNUSED ZirconModuleAnchorDestination =
     ZirconModuleAnchorSource;
 
+// This anchor is used to force the linker to link the EvolutionModule.
+extern volatile int EvolutionModuleAnchorSource;
+static int LLVM_ATTRIBUTE_UNUSED EvolutionModuleAnchorDestination =
+    EvolutionModuleAnchorSource;
+
 } // namespace tidy
 } // namespace clang
 
