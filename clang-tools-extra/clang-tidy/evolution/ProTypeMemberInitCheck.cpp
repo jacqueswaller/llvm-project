@@ -62,6 +62,8 @@ void removeFieldsInitializedInBody(
     for (const auto &Match : Matches) {
       const CallExpr *Expr = Match.getNodeAs<CallExpr>("callExpr");
       const clang::Stmt *StmtBody = Expr->getCalleeDecl()->getBody();
+      if(!StmtBody)
+        continue;
 
       auto Matches =
           match(findAll(binaryOperator(
