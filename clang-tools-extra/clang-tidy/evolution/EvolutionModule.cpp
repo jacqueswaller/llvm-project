@@ -9,6 +9,7 @@
 #include "../ClangTidy.h"
 #include "../ClangTidyModule.h"
 #include "../ClangTidyModuleRegistry.h"
+#include "ContainerFirstElementAccessCheck.h"
 #include "ProTypeMemberInitCheck.h"
 #include "SymbolNonCopyingConstructorCheck.h"
 #include "ZeroVectorInitCheck.h"
@@ -21,6 +22,8 @@ namespace evolution {
 class EvolutionModule : public ClangTidyModule {
 public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
+    CheckFactories.registerCheck<ContainerFirstElementAccessCheck>(
+        "evolution-container-first-element-access");
     CheckFactories.registerCheck<ProTypeMemberInitCheck>(
         "evolution-pro-type-member-init");
     CheckFactories.registerCheck<SymbolNonCopyingConstructorCheck>(
