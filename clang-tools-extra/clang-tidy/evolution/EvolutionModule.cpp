@@ -10,6 +10,7 @@
 #include "../ClangTidyModule.h"
 #include "../ClangTidyModuleRegistry.h"
 #include "ContainerFirstElementAccessCheck.h"
+#include "OverloadingWithVirtualCheck.h"
 #include "ProTypeMemberInitCheck.h"
 #include "SymbolNonCopyingConstructorCheck.h"
 #include "ZeroVectorInitCheck.h"
@@ -24,6 +25,8 @@ public:
   void addCheckFactories(ClangTidyCheckFactories &CheckFactories) override {
     CheckFactories.registerCheck<ContainerFirstElementAccessCheck>(
         "evolution-container-first-element-access");
+    CheckFactories.registerCheck<OverloadingWithVirtualCheck>(
+        "evolution-overloading-with-virtual");
     CheckFactories.registerCheck<ProTypeMemberInitCheck>(
         "evolution-pro-type-member-init");
     CheckFactories.registerCheck<SymbolNonCopyingConstructorCheck>(
