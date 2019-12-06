@@ -61,11 +61,9 @@ void AssertUsageCheck::storeOptions(
 void AssertUsageCheck::registerPPCallbacks(const SourceManager &SM,
                                            Preprocessor *PP,
                                            Preprocessor *) {
-  if (!getLangOpts().CPlusPlus11)
-    return;
-
-  PP->addPPCallbacks(llvm::make_unique<AssertUsageCallbacks>(
-      this, SM));
+  if (getLangOpts().CPlusPlus11 || getLangOpts().C99) {
+    PP->addPPCallbacks(llvm::make_unique<AssertUsageCallbacks>(this, SM));
+  }
 }
 
 void AssertUsageCheck::report(const Token &MacroNameTok) {
