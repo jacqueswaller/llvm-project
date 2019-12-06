@@ -14,6 +14,7 @@
 #include "ProTypeMemberInitCheck.h"
 #include "SymbolNonCopyingConstructorCheck.h"
 #include "ZeroVectorInitCheck.h"
+#include "AssertUsageCheck.h"
 
 namespace clang {
 namespace tidy {
@@ -33,6 +34,8 @@ public:
         "evolution-symbol-non-copying-constructor");
     CheckFactories.registerCheck<ZeroVectorInitCheck>(
         "evolution-zero-vector-init");
+    CheckFactories.registerCheck<AssertUsageCheck>(
+        "evolution-assert-usage");
   }
 
   ClangTidyOptions getModuleOptions() override {
