@@ -14,11 +14,7 @@ add_clang_library(clangTidyEvolutionModule
   clangASTMatchers
   clangBasic
   clangLex
-  clangSerialization
   clangTidy
-  clangTidyMiscModule
-  clangTidyModernizeModule
-  clangTidyReadabilityModule
   clangTidyUtils
   clangTooling
   )

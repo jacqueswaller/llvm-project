@@ -77,6 +77,7 @@ set(ALL_CLANG_TIDY_CHECKS
   clangTidyCERTModule
   clangTidyCppCoreGuidelinesModule
   clangTidyDarwinModule
+  clangTidyEvolutionModule
   clangTidyFuchsiaModule
   clangTidyGoogleModule
   clangTidyHICPPModule
