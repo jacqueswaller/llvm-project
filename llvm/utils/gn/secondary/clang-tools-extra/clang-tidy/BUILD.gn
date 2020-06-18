@@ -48,6 +48,7 @@ group("all-checks") {
     "//clang-tools-extra/clang-tidy/cert",
     "//clang-tools-extra/clang-tidy/cppcoreguidelines",
     "//clang-tools-extra/clang-tidy/darwin",
+    "//clang-tools-extra/clang-tidy/evolution",
     "//clang-tools-extra/clang-tidy/fuchsia",
     "//clang-tools-extra/clang-tidy/google",
     "//clang-tools-extra/clang-tidy/hicpp",

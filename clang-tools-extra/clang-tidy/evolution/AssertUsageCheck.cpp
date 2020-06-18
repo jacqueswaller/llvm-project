@@ -62,7 +62,7 @@ void AssertUsageCheck::registerPPCallbacks(const SourceManager &SM,
                                            Preprocessor *PP,
                                            Preprocessor *) {
   if (getLangOpts().CPlusPlus11 || getLangOpts().C99) {
-    PP->addPPCallbacks(llvm::make_unique<AssertUsageCallbacks>(this, SM));
+    PP->addPPCallbacks(std::make_unique<AssertUsageCallbacks>(this, SM));
   }
 }
 

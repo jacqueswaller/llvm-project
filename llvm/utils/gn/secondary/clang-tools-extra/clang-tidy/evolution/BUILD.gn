@@ -1,0 +1,23 @@
+static_library("evolution") {
+  output_name = "clangTidyEvolutionModule"
+  configs += [ "//llvm/utils/gn/build:clang_code" ]
+  deps = [
+    "//clang-tools-extra/clang-tidy",
+    "//clang-tools-extra/clang-tidy/utils",
+    "//clang/lib/AST",
+    "//clang/lib/ASTMatchers",
+    "//clang/lib/Basic",
+    "//clang/lib/Lex",
+    "//clang/lib/Tooling",
+    "//llvm/lib/Support",
+  ]
+  sources = [
+    "AssertUsageCheck.cpp",
+    "EvolutionModule.cpp",
+    "ContainerFirstElementAccessCheck.cpp",
+    "OverloadingWithVirtualCheck.cpp",
+    "ProTypeMemberInitCheck.cpp",
+    "SymbolNonCopyingConstructorCheck.cpp",
+    "ZeroVectorInitCheck.cpp"
+  ]
+}
