@@ -176,13 +176,6 @@ void TypeMemberAssignCheck::check(const MatchFinder::MatchResult &Result) {
     removeFieldsInitializedInBody(*AssignOp->getBody(), *Result.Context,
                                   FieldsToInit);
 
-    /*printf("%d\n", FieldsToInit.size());
-    if (FieldsToInit.size() > 0) {
-      auto F = *FieldsToInit.begin();
-      printf("%s\n", F->getName().str().c_str());
-      printf("%s\n", F->getType().getBaseTypeIdentifier()->getName().str().c_str());
-    }
-*/
     // Collect all fields in order, both direct fields and indirect fields from
     // anonmyous record types.
     SmallVector<const FieldDecl *, 16> OrderedFields;
