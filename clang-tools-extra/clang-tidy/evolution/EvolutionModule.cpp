@@ -11,6 +11,7 @@
 #include "../ClangTidyModuleRegistry.h"
 #include "ContainerFirstElementAccessCheck.h"
 #include "OverloadingWithVirtualCheck.h"
+#include "TypeMemberAssignCheck.h"
 #include "ProTypeMemberInitCheck.h"
 #include "SymbolNonCopyingConstructorCheck.h"
 #include "ZeroVectorInitCheck.h"
@@ -32,6 +33,8 @@ public:
         "evolution-pro-type-member-init");
     CheckFactories.registerCheck<SymbolNonCopyingConstructorCheck>(
         "evolution-symbol-non-copying-constructor");
+    CheckFactories.registerCheck<TypeMemberAssignCheck>(
+        "evolution-type-member-assign");
     CheckFactories.registerCheck<ZeroVectorInitCheck>(
         "evolution-zero-vector-init");
     CheckFactories.registerCheck<AssertUsageCheck>(

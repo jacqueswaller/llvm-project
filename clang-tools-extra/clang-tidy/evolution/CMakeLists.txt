@@ -7,6 +7,7 @@ add_clang_library(clangTidyEvolutionModule
   OverloadingWithVirtualCheck.cpp
   ProTypeMemberInitCheck.cpp
   SymbolNonCopyingConstructorCheck.cpp
+  TypeMemberAssignCheck.cpp
   ZeroVectorInitCheck.cpp
 
   LINK_LIBS
