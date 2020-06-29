@@ -62,14 +62,10 @@ namespace {
         hasOperatorName("="),
         hasLHS(memberExpr(member(fieldDecl().bind("fieldDecl")))));
 
-    /*const auto CXXAssignOpMatch = cxxOperatorCallExpr(
+    const auto CXXAssignOpMatch = cxxOperatorCallExpr(
         ast_matchers::isAssignmentOperator(),
-        hasArgument(0, memberExpr(member(fieldDecl().bind("fieldDecl")))));*/
-
-    const auto CXXAssignOpMatch =
-        cxxOperatorCallExpr(ast_matchers::isAssignmentOperator()); //,
-        //hasArgument(0, memberExpr(member(fieldDecl().bind("fieldDecl")))));
-
+        hasArgument(0, memberExpr(member(fieldDecl().bind("fieldDecl")))));
+    
     {
       auto Matches =
         match(findAll(BinaryAssignOpMatch), Stmt, Context);
@@ -144,7 +140,7 @@ void TypeMemberAssignCheck::registerMatchers(MatchFinder *Finder) {
     return;
 
   Finder->addMatcher(
-      cxxRecordDecl(hasName("Mutex"), hasMethod(cxxMethodDecl(hasOverloadedOperatorName("="),
+      cxxRecordDecl(hasMethod(cxxMethodDecl(hasOverloadedOperatorName("="),
                                             isPublic(), isUserProvided()).bind("assign_op")))
           .bind("class"),
       this);
