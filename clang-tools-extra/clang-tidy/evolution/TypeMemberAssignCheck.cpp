@@ -221,6 +221,10 @@ void TypeMemberAssignCheck::check(const MatchFinder::MatchResult &Result) {
       if (F->getType()->isArrayType() && IgnoreArrays)
         return;
 
+      if (!F->getType()->isPointerType() &&
+          F->getType().isConstant(*Result.Context))
+        return;
+
       if (isIncompleteOrZeroLengthArrayType(*Result.Context, F->getType()))
         return;
 
